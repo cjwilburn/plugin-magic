@@ -59,57 +59,157 @@
 				<section>
 					<h2>Atom Overview</h2>
 					<p>
+						<ul>
+							<li>Initially Released February 26 2014</li>
+							<li>Based on Chromium</li>
+							<li>Written in Less and CoffeeScript</li>
+							<li>Atom's shell, <a href="http://electron.atom.io">Electron</a>, was initally released as Atom Shell, now used in <a href="http://electron.atom.io/#built-on-electron">popular applications</a>.
+						</ul>
 					</p>
+
+
 				</section>
 				<!-- APM In A Nutshell -->
 				<section>
-					<h2>Slides</h2>
+					<h2>APM In A Nutshell</h2>
 					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+						I could go on for a while here, but all you need to know is that it's an abstraction of Node Package Manager.
 					</p>
 				</section>
 
 				<!-- Anatomy of An Atom Package -->
 				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
+					<h2>Anatomy of An Atom Package</h2>
+
+					<section>
+						<p>
+							The phrase "atom package" is broadly used to describe a plugin the extends the functionality of the text editor.
+						</p>
+					</section>
+					<section>
+						<p>
+							Simple Directory Structure
+						</p>
+					</section>
+					<section>
+						<pre><code data-trim contenteditable>
+language-prince
+	package.json
+	index.coffee
+	lib/
+	language-prince.coffee
+						</pre></code>
+					</section>
+				<section>
+					<p>Courtney, what about tests?</p>
 				</section>
+				<section>
+					<p class="fragment">Excellent question, Court!</p>
+					<span class="fragment">
+					<pre><code data-trim contenteditable>
+language-prince
+	lib/
+	spec/
+	index.coffee
+	package.json
+	language-prince.coffee
+					</pre></code>
+				</span>
+				</section>
+				<section>
+					<p>Well what about all that other stuff, you know, how on earth is this text editor supposed to recognize what this language looks like?
+				</section>
+				<section>
+					<p class="fragment"> Court, you're en fuego today! 2 for 2!</p>
+					<span class="fragment">
+					<pre><code data-trim contenteditable>
+language-prince
+	grammars/
+	keymaps/
+	lib/
+	menus/
+	spec/
+	snippets/
+	stylesheets/
+	index.coffee
+	package.json
+	language-prince.coffee
+					</pre></code>
+				</span>
+				</section>
+				</section>
+
 				<!-- Ways to Create An Atom Pachage -->
 				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
+					<h2>Ways to Create An Atom Package</h2>
+
+					<section>
+						<h2> Convert it!</h2>
+					</section>
+					<section>
+						<h2>Roll Your Own!</h2>
+						<h3>(with some help)</h3>
+						<p>Saving it 4 the demo</p>
+					</section>
 				</section>
 				<!-- Deploy -->
 				<section>
 					<h2>How To Deploy Your Atom Package</h2>
-					<p></p>
 					<section>
-						<pre><code data-trim contenteditable></code></pre>
+						<pre><code data-trim contenteditable>
+package.json
+						</code></pre>
+						<ul>
+							<li>name, description & repository</li>
+							<li>version</li>
+							<li>engines</li>
+							<li>readme</li>
+							<li>you published that jawn to github</li>
+						</ul>
+					</section>
+					<section>
+						<span class="fragment">
+							<pre><code data-trim contenteditable>
+								cd ~/github/language-chuck
+							</code></pre>
+						</span>
+						<span class="fragment">
+							<pre><code data-trim contenteditable>
+								apm publish minor
+							</code></pre>
+						</span>
 					</section>
 				</section>
 				<!-- Updates -->
 				<section>
 					<h2>Updating Your Atom Package</h2>
-					<p></p>
+					<pre><code class="bash" data-trim contenteditable>
+apm publish [$newversion | major | minor | patch | build]
+apm publish --tag $tagname
+apm publish --rename $new-name
+					</code></pre>
 				</section>
 				<!-- Demo -->
 				<section>
 					<h2>Demo</h2>
-					<p></p>
+					<span class="fragment">
+						<pre><code data-trim contenteditable>
+apm init --package ~/.atom/packages/language-chuck --convert https://github.com/tasmo/ChucK.tmbundle
+						</code></pre>
+					</span>
+					<span class="fragment">
+						<pre><code data-trim contenteditable>
+cd ~/github/language-chuck
+						</code></pre>
+					</span>
+					<span class="fragment">
+						<pre><code data-trim contenteditable>
+apm publish minor
+						</code></pre>
+					</span>
 				</section>
 				<section style="text-align: left;">
 					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
 				</section>
 
 			</div>
